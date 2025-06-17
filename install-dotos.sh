@@ -16,8 +16,11 @@ sudo pacman -S --noconfirm \
   iwlwifi \
   unzip
 
-  
+
 echo "Setting up networking..."
 sudo pacman -S --noconfirm iwd
 sudo systemctl enable iwd
 sudo systemctl start iwd
+
+echo "Installing Ollama..."
+curl -fsSL https://ollama.com/install.sh | sh
