@@ -66,3 +66,13 @@ echo "This machine offers only two tools: a mind and a window."
 echo "No more. No less."
 EOF
 chmod +x ~/bin/help
+
+
+echo -e "Adding DotOS command aliases to .bashrc..."
+echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+
+echo -e "Enforcing Temperantia: Blocking new installs..."
+echo 'alias pacman="echo Temperantia: Nothing else."' >> ~/.bashrc
+
+echo -e "DotOS bootstrap complete. Log out and back in, or run: source ~/.bashrc"
+echo -e "\nTry: think   | browse   | wifi   | help"
