@@ -19,7 +19,7 @@ sudo pacman -S --noconfirm \
   unzip
 
 
-echo -e "Enabling iwd and NetworkManager for Wi-Fi connectivity..."
+echo "Enabling iwd and NetworkManager for Wi-Fi connectivity..."
 sudo systemctl enable iwd
 sudo systemctl start iwd
 sudo systemctl enable NetworkManager
@@ -30,12 +30,12 @@ echo "Installing Ollama..."
 curl -fsSL https://ollama.com/install.sh | sh
 ollama pull nousresearch/nous-hermes-2-mistral
 
-echo -e "Setting up DotOS interface commands..."
+echo "Setting up DotOS interface commands..."
 mkdir -p ~/bin
 
 cat << 'EOF' > ~/bin/think
 #!/bin/bash
-echo "Staring LLM..."
+echo "Starting LLM..."
 ollama run nousresearch/nous-hermes-2-mistral
 EOF
 chmod +x ~/bin/think
@@ -56,23 +56,23 @@ chmod +x ~/bin/wifi
 
 cat << 'EOF' > ~/bin/help
 #!/bin/bash
-echo -e "DotOS Commands"
+echo "DotOS Commands"
 echo "think     → Start your LLM (Dominium)"
 echo "browse    → Launch browser (Orbis)"
 echo "wifi      → Open Wi-Fi menu"
 echo "help      → Show this help menu"
-echo -e "DotOS: Dominium. Orbis. Temperantia."
+echo "DotOS: Dominium. Orbis. Temperantia."
 echo "This machine offers only two tools: a mind and a window."
 echo "No more. No less."
 EOF
 chmod +x ~/bin/help
 
 
-echo -e "Adding DotOS command aliases to .bashrc..."
+echo "Adding DotOS command aliases to .bashrc..."
 echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
 
-echo -e "Enforcing Temperantia: Blocking new installs..."
+echo "Enforcing Temperantia: Blocking new installs..."
 echo 'alias pacman="echo Temperantia: Nothing else."' >> ~/.bashrc
 
-echo -e "DotOS bootstrap complete. Log out and back in, or run: source ~/.bashrc"
+echo "DotOS bootstrap complete. Log out and back in, or run: source ~/.bashrc"
 echo -e "\nTry: think   | browse   | wifi   | help"
