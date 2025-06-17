@@ -28,21 +28,28 @@ sudo systemctl start NetworkManager
 
 echo "Installing Ollama..."
 curl -fsSL https://ollama.com/install.sh | sh
+ollama pull nousresearch/nous-hermes-2-mistral
 
-echo "Setting up CLI..."
+echo -e "Setting up DotOS interface commands..."
 mkdir -p ~/bin
-cat << 'EOF' > ~/bin/dot
+
+cat << 'EOF' > ~/bin/think
 #!/bin/bash
-case "$1" in
-  llm)
-    ollama run phi3
-    ;;
-  browser)
-    firefox
-    ;;
-  *)
-    echo "Usage: dot llm|browser"
-    ;;
-esac
+echo "Staring LLM..."
+ollama run nousresearch/nous-hermes-2-mistral
 EOF
-chmod +x ~/bin/dot
+chmod +x ~/bin/think
+
+cat << 'EOF' > ~/bin/browse
+#!/bin/bash
+echo "Starting browser..."
+firefox
+EOF
+chmod +x ~/bin/browse
+
+cat << 'EOF' > ~/bin/wifi
+#!/bin/bash
+echo "Starting Wi-Fi manager..."
+nmtui
+EOF
+chmod +x ~/bin/wifi
