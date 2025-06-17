@@ -13,7 +13,6 @@ sudo pacman -S --noconfirm \
   firefox \
   linux-firmware \
   intel-ucode \
-  iwlwifi \
   iwd \
   networkmanager \
   unzip
@@ -28,6 +27,7 @@ sudo systemctl start NetworkManager
 
 echo "Installing Ollama..."
 curl -fsSL https://ollama.com/install.sh | sh
+export PATH="$HOME/.ollama/bin:$PATH"
 ollama pull nousresearch/nous-hermes-2-mistral
 
 echo "Setting up DotOS interface commands..."
