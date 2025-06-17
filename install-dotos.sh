@@ -11,3 +11,8 @@ sudo pacman -S --noconfirm \
   git \
   curl \
   firefox
+
+echo "Setting up networking..."
+sudo pacman -S --noconfirm iwd
+sudo systemctl enable iwd
+sudo systemctl start iwd
