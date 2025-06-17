@@ -27,7 +27,9 @@ sudo systemctl start NetworkManager
 
 echo "Installing Ollama..."
 curl -fsSL https://ollama.com/install.sh | sh
-export PATH="$HOME/.ollama/bin:$PATH"
+echo 'export PATH="$HOME/.ollama/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
 ollama pull nousresearch/nous-hermes-2-mistral
 
 echo "Setting up DotOS interface commands..."
