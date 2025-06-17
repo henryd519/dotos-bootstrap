@@ -19,7 +19,7 @@ sudo pacman -S --noconfirm \
   unzip
 
 
-echo -e "\n🌐 Enabling iwd and NetworkManager for Wi-Fi connectivity..."
+echo -e "Enabling iwd and NetworkManager for Wi-Fi connectivity..."
 sudo systemctl enable iwd
 sudo systemctl start iwd
 sudo systemctl enable NetworkManager
@@ -53,3 +53,16 @@ echo "Starting Wi-Fi manager..."
 nmtui
 EOF
 chmod +x ~/bin/wifi
+
+cat << 'EOF' > ~/bin/help
+#!/bin/bash
+echo -e "DotOS Commands"
+echo "think     → Start your LLM (Dominium)"
+echo "browse    → Launch browser (Orbis)"
+echo "wifi      → Open Wi-Fi menu"
+echo "help      → Show this help menu"
+echo -e "DotOS: Dominium. Orbis. Temperantia."
+echo "This machine offers only two tools: a mind and a window."
+echo "No more. No less."
+EOF
+chmod +x ~/bin/help
