@@ -27,9 +27,7 @@ sudo systemctl start NetworkManager
 
 echo "Installing Ollama..."
 curl -fsSL https://ollama.com/install.sh | sh
-echo 'export PATH="$HOME/.ollama/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-
+export PATH="$HOME/.ollama/bin:$PATH"
 ollama pull nousresearch/nous-hermes-2-mistral
 
 echo "Setting up DotOS interface commands..."
@@ -72,6 +70,7 @@ chmod +x ~/bin/help
 
 echo "Adding DotOS command aliases to .bashrc..."
 echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
 
 echo "Enforcing Temperantia: Blocking new installs..."
 echo 'alias pacman="echo Temperantia: Nothing else."' >> ~/.bashrc
