@@ -10,8 +10,13 @@ sudo pacman -S --noconfirm \
   base-devel \
   git \
   curl \
-  firefox
+  firefox \
+  linux-firmware \
+  intel-ucode \
+  iwlwifi \
+  unzip
 
+  
 echo "Setting up networking..."
 sudo pacman -S --noconfirm iwd
 sudo systemctl enable iwd
