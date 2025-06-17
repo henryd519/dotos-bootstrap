@@ -67,6 +67,7 @@ echo "No more. No less."
 EOF
 chmod +x ~/bin/help
 
+chmod +x ~/bin/*
 
 echo "Adding DotOS command aliases to .bashrc..."
 echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
